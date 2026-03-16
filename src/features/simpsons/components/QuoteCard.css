@@ -1,0 +1,82 @@
+.quote-card {
+  background: white;
+  border: 3px solid #1A1A1A;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 #1A1A1A;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.quote-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #1A1A1A;
+}
+
+/* Image */
+.qcard-img-wrap {
+  background: var(--card-color, #FED90F);
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 3px solid #1A1A1A;
+  padding-top: 12px;
+}
+
+.qcard-img {
+  max-height: 120px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.qcard-img.flip {
+  transform: scaleX(-1);
+}
+
+.qcard-img-fallback {
+  font-size: 3rem;
+  padding-bottom: 8px;
+}
+
+/* Quote bubble */
+.quote-bubble {
+  padding: 16px;
+  flex: 1;
+  position: relative;
+}
+
+.quote-bubble::before {
+  content: '"';
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: #ddd;
+  line-height: 1;
+}
+
+.quote-text {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.55;
+  padding-left: 8px;
+  font-style: italic;
+}
+
+/* Character name */
+.quote-character {
+  padding: 8px 16px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #1A1A1A;
+  border-top: 3px solid #1A1A1A;
+  text-align: center;
+}

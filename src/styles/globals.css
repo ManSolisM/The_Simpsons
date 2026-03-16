@@ -1,0 +1,162 @@
+/* ============================================
+   THE SIMPSONS EXPLORER — GLOBAL STYLES
+   ============================================ */
+
+:root {
+  /* Simpsons Color Palette */
+  --yellow: #FED90F;
+  --yellow-dark: #F5C518;
+  --yellow-light: #FFF176;
+  --skin: #FFCC99;
+  --sky-blue: #87CEEB;
+  --sky-dark: #5BA3D9;
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+  --gray: #444;
+  --gray-light: #f5f5f5;
+  --red: #E63946;
+  --green: #4CAF50;
+  --orange: #FF9800;
+  --purple: #9C27B0;
+
+  /* Shadows */
+  --shadow-cartoon: 4px 4px 0px #1A1A1A;
+  --shadow-cartoon-lg: 6px 6px 0px #1A1A1A;
+  --shadow-glow: 0 0 20px rgba(254, 217, 15, 0.6);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.15);
+
+  /* Border */
+  --border-cartoon: 3px solid #1A1A1A;
+  --border-cartoon-thick: 4px solid #1A1A1A;
+  --radius: 12px;
+  --radius-lg: 20px;
+
+  /* Fonts */
+  --font-display: 'Bangers', cursive;
+  --font-body: 'Nunito', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--sky-blue);
+  color: var(--black);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--yellow);
+  border-left: 2px solid var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 0;
+}
+
+/* ============ SELECTION ============ */
+::selection {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+/* ============ UTILITY CLASSES ============ */
+.cartoon-border {
+  border: var(--border-cartoon);
+  box-shadow: var(--shadow-cartoon);
+}
+
+.cartoon-border-lg {
+  border: var(--border-cartoon-thick);
+  box-shadow: var(--shadow-cartoon-lg);
+}
+
+.text-display {
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.1) rotate(3deg); }
+  80% { transform: scale(0.95) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+@keyframes pulse-yellow {
+  0%, 100% { box-shadow: var(--shadow-cartoon), 0 0 0 0 rgba(254, 217, 15, 0.7); }
+  50% { box-shadow: var(--shadow-cartoon), 0 0 0 10px rgba(254, 217, 15, 0); }
+}
+
+@keyframes donut-fall {
+  0% {
+    transform: translateY(-120px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(110vw); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  :root {
+    --shadow-cartoon: 3px 3px 0px #1A1A1A;
+    --shadow-cartoon-lg: 4px 4px 0px #1A1A1A;
+  }
+}

@@ -1,0 +1,212 @@
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ── Sky ── */
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    #87CEEB 0%,
+    #B8E4F9 55%,
+    #D4EED4 100%
+  );
+}
+
+/* ── Sun ── */
+.sun {
+  position: absolute;
+  top: 32px;
+  right: 80px;
+  width: 70px;
+  height: 70px;
+  background: #FED90F;
+  border-radius: 50%;
+  border: 3px solid #1A1A1A;
+  box-shadow: 3px 3px 0 #1A1A1A, 0 0 30px rgba(254,217,15,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 5s ease-in-out infinite;
+}
+
+.sun-face {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* ── Clouds ── */
+.cloud {
+  position: absolute;
+  left: -250px;
+  animation: cloud-drift linear infinite;
+}
+
+.cloud-body {
+  width: 160px;
+  height: 60px;
+  background: white;
+  border-radius: 50px;
+  border: 3px solid #1A1A1A;
+  position: relative;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+}
+
+.cloud-body::before,
+.cloud-body::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border: 3px solid #1A1A1A;
+  border-radius: 50%;
+}
+
+.cloud-body::before {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  left: 30px;
+}
+
+.cloud-body::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 80px;
+}
+
+.cloud-1 .cloud-body { width: 140px; }
+.cloud-2 .cloud-body { width: 200px; }
+.cloud-3 .cloud-body { width: 120px; }
+
+/* ── Donuts ── */
+.donut {
+  position: absolute;
+  top: -60px;
+  animation: donut-fall linear infinite;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.3));
+  will-change: transform;
+}
+
+/* ── Springfield Skyline ── */
+.skyline {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.building {
+  background: #5BA3D9;
+  border: 3px solid #1A1A1A;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  box-shadow: inset -4px 0 0 rgba(0,0,0,0.15);
+}
+
+.building::before {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Windows pattern */
+.building::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  background-image:
+    repeating-linear-gradient(
+      transparent 0px, transparent 10px,
+      rgba(255,220,50,0.4) 10px, rgba(255,220,50,0.4) 16px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 14px,
+      rgba(255,220,50,0.4) 14px, rgba(255,220,50,0.4) 22px
+    );
+  background-size: 22px 16px;
+}
+
+.b1 { width: 55px; height: 130px; }
+.b2 { width: 80px; height: 180px; }
+.b3 { width: 65px; height: 110px; }
+.b4 { width: 90px; height: 90px; background: #A3C4BC; }
+.b5 { width: 50px; height: 150px; }
+.b6 { width: 70px; height: 120px; }
+
+/* Nuclear cooling towers */
+.nuclear {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  background: transparent !important;
+  border: none !important;
+}
+
+.cooling-tower {
+  width: 38px;
+  height: 80px;
+  background: linear-gradient(180deg, #C8D8E8 0%, #A0B5C0 100%);
+  border: 3px solid #1A1A1A;
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+}
+
+.cooling-tower::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 12px;
+  background: #D0D8E0;
+  border: 3px solid #1A1A1A;
+  border-radius: 50%;
+}
+
+/* ── Ground ── */
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: #4CAF50;
+  border-top: 4px solid #1A1A1A;
+}
+
+.grass-row {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.grass-blade {
+  position: absolute;
+  bottom: 100%;
+  width: 6px;
+  background: linear-gradient(180deg, #66BB6A, #388E3C);
+  border-radius: 3px 3px 0 0;
+  transform-origin: bottom center;
+  animation: sway 2s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(8deg); }
+}

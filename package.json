@@ -1,0 +1,44 @@
+{
+  "name": "The_Simpsons",
+  "version": "1.0.0",
+  "description": "The Simpsons Explorer App - React + Vite",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx --report-unused-disable-directives",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy:secondary": "git add . && git commit -m 'Nueva actualización Los Simpson' && git push origin main && npm run deploy"
+},
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "react-query": "^3.39.3",
+    "react-hot-toast": "^2.4.1",
+    "framer-motion": "^11.11.7",
+    "lucide-react": "^0.447.0",
+    "axios": "^1.7.7",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "vite": "^5.4.8",
+    "eslint": "^9.12.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "gh-pages": "^6.1.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47"
+  },
+  "homepage": "https://ManSolisM.github.io/The_Simpsons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ManSolisM/The_Simpsons.git"
+  },
+  "keywords": ["simpsons", "react", "vite", "api"],
+  "author": ""
+}

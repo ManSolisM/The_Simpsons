@@ -1,0 +1,33 @@
+.spinner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.spinner-donuts {
+  display: flex;
+  gap: 6px;
+}
+
+.s-donut {
+  font-size: 2rem;
+  animation: donut-spin 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.s2 { animation-delay: 0.2s; }
+.s3 { animation-delay: 0.4s; }
+
+@keyframes donut-spin {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(180deg); }
+}
+
+.spinner-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #1A1A1A;
+  text-shadow: 1px 1px 0 #FED90F;
+}
