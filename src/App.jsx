@@ -69,7 +69,7 @@ function AppRoutes() {
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename="/simpsons-app">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AppRoutes />
         <Toaster
           position="top-right"
