@@ -13,7 +13,7 @@ export function useQuotes(initialCount = 12) {
       const data = await fetchQuotes(count)
       setQuotes(data)
     } catch (e) {
-      setError(e.message)
+      setError('No se pudo conectar con la API. La API puede estar durmiendo, intenta de nuevo en unos segundos.')
     } finally {
       setLoading(false)
     }
@@ -36,7 +36,7 @@ export function useCharacters() {
       const data = await fetchAllCharacters()
       setCharacters(data)
     } catch (e) {
-      setError(e.message)
+      setError('No se pudo conectar con la API. La API puede estar durmiendo, intenta de nuevo en unos segundos.')
     } finally {
       setLoading(false)
     }
@@ -55,7 +55,7 @@ export function useStats() {
   useEffect(() => {
     fetchStats()
       .then(setStats)
-      .catch((e) => setError(e.message))
+      .catch(() => setError('No se pudo conectar con la API. Intenta recargar la página.'))
       .finally(() => setLoading(false))
   }, [])
 
@@ -75,7 +75,7 @@ export function useCharacterQuotes(character) {
       const data = await fetchQuotesByCharacter(character, 20)
       setQuotes(data)
     } catch (e) {
-      setError(e.message)
+      setError('No se pudieron cargar las citas.')
     } finally {
       setLoading(false)
     }
