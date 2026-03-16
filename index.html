@@ -6,10 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The Simpsons Explorer - Explora todos los personajes y citas de Los Simpson" />
     <title>The Simpsons Explorer</title>
+    <script>
+      // GitHub Pages SPA: procesa el redirect del 404.html
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Procesa el ?p= param del 404.html
+        var search = window.location.search;
+        if (search) {
+          var p = search.slice(1).split('&').reduce(function(o, s) {
+            var pair = s.split('=');
+            o[decodeURIComponent(pair[0])] = decodeURIComponent(pair.slice(1).join('=').replace(/~and~/g, '&'));
+            return o;
+          }, {});
+          if (p.p !== undefined) {
+            window.history.replaceState(
+              null, null,
+              window.location.pathname.split('/').slice(0, 2).join('/') +
+              '/' + (p.p || '') + (p.q ? '?' + p.q : '') + (window.location.hash || '')
+            );
+          }
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/simpsons-app/assets/index-1ZZRjE0X.js"></script>
+    <script type="module" crossorigin src="/simpsons-app/assets/index-ClYRbVL_.js"></script>
     <link rel="stylesheet" crossorigin href="/simpsons-app/assets/index-CICTEbAD.css">
   </head>
   <body>
